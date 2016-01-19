@@ -15,6 +15,7 @@ from shop.cart.cart_modifiers_base import BaseCartModifier
 
 from .managers import DiscountBaseManager
 
+from django.utils import timezone
 
 class DiscountMetaclass(PolymorphicModelBase):
     def __new__(cls, name, bases, attrs):
@@ -56,6 +57,9 @@ class DiscountBase(PolymorphicModel, BaseCartModifier):
 
     def get_name(self):
         return self.name
+
+    def is_active_now(self):
+        return self.is_active and (self.valid_until == None or self.valid_until >= timezone.now())
 
     @classmethod
     def register_product_filter(cls, filt):

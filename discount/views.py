@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse_lazy
 
 from shop.util.cart import get_or_create_cart
 
-from models import CartDiscountCode
+from .models import CartDiscountCode
 
 
 # TODO: handle ajax
@@ -14,6 +14,7 @@ from models import CartDiscountCode
 class CartDiscountCodeCreateView(CreateView):
     model = CartDiscountCode
     success_url = reverse_lazy('checkout_selection')
+    fields = ['code']
 
     def get_form_kwargs(self):
         kwargs = super(CartDiscountCodeCreateView, self).get_form_kwargs()

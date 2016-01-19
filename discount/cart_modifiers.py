@@ -1,7 +1,6 @@
 from shop.cart.cart_modifiers_base import BaseCartModifier
 
-from models import DiscountBase
-
+from .models import DiscountBase
 
 class DiscountCartModifier(BaseCartModifier):
 
