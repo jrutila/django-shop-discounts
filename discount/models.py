@@ -4,7 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 
-from polymorphic.polymorphic_model import (
+from polymorphic.models import (
         PolymorphicModel,
         PolymorphicModelBase,
         )
