@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('contenttypes', '0002_remove_content_type_name'),
-        ('shop', '0002_foreign_keys'),
+        ('shop', '__initial__'),
     ]
 
     operations = [
