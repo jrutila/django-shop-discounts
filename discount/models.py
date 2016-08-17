@@ -4,14 +4,14 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 
-from polymorphic.polymorphic_model import (
+from polymorphic.models import (
         PolymorphicModel,
         PolymorphicModelBase,
         )
 
 from shop.util.loader import get_model_string
-from shop.models.productmodel import Product
-from shop.cart.cart_modifiers_base import BaseCartModifier
+from shop.models.product import BaseProduct
+from shop.modifiers.base import BaseCartModifier
 
 from .managers import DiscountBaseManager
 
@@ -78,7 +78,7 @@ class DiscountBase(PolymorphicModel, BaseCartModifier):
         Subclasses can override this method to filter products further,
         ie by category or exclude products that are on sale.
         """
-        return Product.objects.all()
+        return BaseProduct.objects.all()
 
     def eligible_products(self, in_products=None):
        """
