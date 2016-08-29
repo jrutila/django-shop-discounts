@@ -10,8 +10,8 @@ from polymorphic.models import (
         )
 
 from shop.util.loader import get_model_string
-from shop.models.productmodel import Product
-from shop.cart.cart_modifiers_base import BaseCartModifier
+from shop.models.product import ProductModel
+from shop.modifiers.base import BaseCartModifier
 
 from .managers import DiscountBaseManager
 
@@ -78,7 +78,7 @@ class DiscountBase(PolymorphicModel, BaseCartModifier):
         Subclasses can override this method to filter products further,
         ie by category or exclude products that are on sale.
         """
-        return Product.objects.all()
+        return ProductModel.objects.all()
 
     def eligible_products(self, in_products=None):
        """
