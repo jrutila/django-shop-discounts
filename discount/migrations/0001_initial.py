@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import shop.cart.cart_modifiers_base
+import shop.modifiers.base
 import datetime
 
 
@@ -43,6 +43,6 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'Discounts',
                 'verbose_name': 'Discount',
             },
-            bases=(models.Model, shop.cart.cart_modifiers_base.BaseCartModifier),
+            bases=(models.Model, shop.modifiers.base.BaseCartModifier),
         ),
     ]
