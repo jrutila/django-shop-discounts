@@ -9,9 +9,10 @@ from polymorphic.models import (
         PolymorphicModelBase,
         )
 
-from shop.util.loader import get_model_string
 from shop.models.product import ProductModel
+from shop.models.cart import BaseCart
 from shop.modifiers.base import BaseCartModifier
+from shop.models import deferred
 
 from .managers import DiscountBaseManager
 
@@ -123,7 +124,7 @@ class CartDiscountCode(models.Model):
     """
     Model holds entered discount code for ``Cart``.
     """
-    cart = models.ForeignKey(get_model_string('Cart'), editable=False)
+    cart = deferred.ForeignKey(BaseCart, editable=False)
     code = models.CharField(_('Discount code'), max_length=30)
 
     class Meta:
