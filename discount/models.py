@@ -12,7 +12,7 @@ from polymorphic.models import (
 from shop.models.product import ProductModel
 from shop.models.cart import BaseCart
 from shop.modifiers.base import BaseCartModifier
-from shop.models import deferred
+from shop import deferred
 
 from .managers import DiscountBaseManager
 

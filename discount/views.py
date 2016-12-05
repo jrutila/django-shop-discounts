@@ -3,7 +3,7 @@ from django.views.generic import View
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse_lazy
 
-from shop.util.cart import get_or_create_cart
+#from shop.util.cart import get_or_create_cart
 
 from .models import CartDiscountCode
 
